@@ -33,7 +33,7 @@ namespace ADB_GUI_Utillity
             txtBoxTarget.Clear();
 
             txtBoxPackage.Text = Properties.Settings.Default.Package;
-            txtBoxPackage.Text = Properties.Settings.Default.Activity;
+            txtBoxTarget.Text = Properties.Settings.Default.Activity;
             string action = Properties.Settings.Default.Action;
             if (action.Length > 0)
             {
@@ -76,7 +76,7 @@ namespace ADB_GUI_Utillity
         private void Save_Click(object sender, RoutedEventArgs e)
         {
             Properties.Settings.Default.Package = txtBoxPackage.Text;
-            Properties.Settings.Default.Activity = txtBoxPackage.Text;
+            Properties.Settings.Default.Activity = txtBoxTarget.Text;
             Properties.Settings.Default.Action = txtBoxAction.Text;
             Properties.Settings.Default.Save();
         }
