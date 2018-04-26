@@ -64,7 +64,10 @@ namespace ADB_GUI_Utillity
             string args = " shell am startservice -n ";
             args = args + txtBoxPackage.Text + "/" + txtBoxTarget.Text;
             args = args + " -a " + txtBoxAction.Text;
-            args = args + " " + coms[combo1.SelectedIndex] + " " + txtBoxName1.Text + " " + txtBoxVal1.Text;
+            if (combo1.SelectedIndex > -1)
+            {
+                args = args + " " + coms[combo1.SelectedIndex] + " " + txtBoxName1.Text + " " + txtBoxVal1.Text;
+            }         
             adb.StartInfo.Arguments = args;
             adb.Start();
             MessageBox.Show("Done\nTip: Set export to True\n");
@@ -75,6 +78,7 @@ namespace ADB_GUI_Utillity
             Properties.Settings.Default.Package = txtBoxPackage.Text;
             Properties.Settings.Default.Activity = txtBoxPackage.Text;
             Properties.Settings.Default.Action = txtBoxAction.Text;
+            Properties.Settings.Default.Save();
         }
 
     }
