@@ -5,9 +5,87 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ADB_GUI_Utillity"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-	<Grid>
-		<WindowsFormsHost HorizontalAlignment="Left" Height="399" Margin="10,10,0,0" VerticalAlignment="Top" Width="772"/>
+        Title="ADB-GUI-Utility" Height="560" Width="800" Background = "Gainsboro">
+    <Grid Margin="10" Background = "Gainsboro">
+        <TabControl HorizontalAlignment="Left" Width="770" Background = "Gainsboro">
+            <TabItem x:Name="Activity_Manager" Header="Activity Manager" Background = "Gainsboro" >
+                <StackPanel Orientation = "Vertical">
+                    <StackPanel Orientation = "Horizontal">
+                        <RadioButton x:Name="radButActivity" Margin="10" Content="Activity" GroupName="am_choice"/>
+                        <RadioButton x:Name="radButService" Margin="10" Content="Service" GroupName="am_choice" IsChecked="True"/>
+                    </StackPanel>
+                    <Grid x:Name = "FormLayoutGrid" Background = "AntiqueWhite" Margin="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width = "Auto" />
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
 
-	</Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height = "*" />
+                            <RowDefinition Height = "*" />
+                            <RowDefinition Height = "*" />
+                            <RowDefinition Height = "*" />
+                            <RowDefinition Height = "*" />
+                            <RowDefinition Height = "*" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row = "0" Grid.Column = "0" Text = "Package" Margin = "10" HorizontalAlignment = "Left" VerticalAlignment = "Center" Width = "100" />
+                        <TextBlock Grid.Row = "1" Grid.Column = "0" Text = "Target" Margin = "10" HorizontalAlignment = "Left" VerticalAlignment = "Center" Width = "100" />
+                        <TextBlock Grid.Row = "2" Grid.Column = "0" Text = "Action [-a]" Margin = "10" HorizontalAlignment = "Left" VerticalAlignment = "Center" Width = "100" />
+                        <TextBlock Grid.Row = "3" Grid.Column = "0" Text = "URI [-d]" Margin = "10" HorizontalAlignment = "Left" VerticalAlignment = "Center" Width = "100" />
+                        <TextBlock Grid.Row = "4" Grid.Column = "0" Text = "Mime [-t]" Margin = "10" HorizontalAlignment = "Left" VerticalAlignment = "Center" Width = "100" />
+                        <TextBlock Grid.Row = "5" Grid.Column = "0" Text = "Category [-c]" Margin = "10" HorizontalAlignment = "Left" VerticalAlignment = "Center" Width = "100" />
+                        <TextBox x:Name="txtBoxPackage"  Grid.Row = "0" Grid.Column = "1" Margin="10"/>
+                        <TextBox x:Name="txtBoxTarget"  Grid.Row = "1" Grid.Column = "1" Margin="10"/>
+                        <TextBox x:Name="txtBoxAction"  Grid.Row = "2" Grid.Column = "1" Margin="10"/>
+                        <TextBox x:Name="txtBoxUri" Grid.Row = "3" Grid.Column = "1" Margin="10"/>
+                        <TextBox x:Name="txtBoxMime" Grid.Row = "4" Grid.Column = "1" Margin="10"/>
+                        <TextBox x:Name="txtBoxCategory" Grid.Row = "5" Grid.Column = "1" Margin="10"/>
+
+                    </Grid>
+                    <StackPanel Orientation = "Vertical" Background = "AntiqueWhite" Margin="10">
+
+                        <StackPanel Orientation = "Horizontal">
+                            <TextBlock Grid.Row = "0" Grid.Column = "0" Text = "Type" Margin = "10" HorizontalAlignment = "Left" VerticalAlignment = "Center" />
+                            <ComboBox x:Name="combo1" Grid.Row = "0" Grid.Column = "1" Text="Type" Margin="10" Width="100"/>
+                            <TextBlock Grid.Row = "0" Grid.Column = "2" Text = "Name" Margin = "10" HorizontalAlignment = "Left" VerticalAlignment = "Center" />
+                            <TextBox x:Name="txtBoxName1"  Grid.Row = "0" Grid.Column = "3" Margin="10" Width="200"/>
+                            <TextBlock Grid.Row = "0" Grid.Column = "4" Text = "Value" Margin = "10" HorizontalAlignment = "Left" VerticalAlignment = "Center" />
+                            <TextBox x:Name="txtBoxVal1"  Grid.Row = "0" Grid.Column = "5" Margin="10" Width="200"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation = "Horizontal">
+                            <TextBlock Grid.Row = "0" Grid.Column = "0" Text = "Type" Margin = "10" HorizontalAlignment = "Left" VerticalAlignment = "Center" />
+                            <ComboBox x:Name="combo2" Grid.Row = "0" Grid.Column = "1" Text="Type" Margin="10" Width="100"/>
+                            <TextBlock Grid.Row = "0" Grid.Column = "2" Text = "Name" Margin = "10" HorizontalAlignment = "Left" VerticalAlignment = "Center" />
+                            <TextBox x:Name="txtBoxName2"  Grid.Row = "0" Grid.Column = "3" Margin="10" Width="200"/>
+                            <TextBlock Grid.Row = "0" Grid.Column = "4" Text = "Value" Margin = "10" HorizontalAlignment = "Left" VerticalAlignment = "Center" />
+                            <TextBox x:Name="txtBoxVal2"  Grid.Row = "0" Grid.Column = "5" Margin="10" Width="200"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation = "Horizontal">
+                            <TextBlock Grid.Row = "0" Grid.Column = "0" Text = "Type" Margin = "10" HorizontalAlignment = "Left" VerticalAlignment = "Center" />
+                            <ComboBox x:Name="combo3" Grid.Row = "0" Grid.Column = "1" Text="Type" Margin="10" Width="100"/>
+                            <TextBlock Grid.Row = "0" Grid.Column = "2" Text = "Name" Margin = "10" HorizontalAlignment = "Left" VerticalAlignment = "Center" />
+                            <TextBox x:Name="txtBoxName3"  Grid.Row = "0" Grid.Column = "3" Margin="10" Width="200"/>
+                            <TextBlock Grid.Row = "0" Grid.Column = "4" Text = "Value" Margin = "10" HorizontalAlignment = "Left" VerticalAlignment = "Center" />
+                            <TextBox x:Name="txtBoxVal3"  Grid.Row = "0" Grid.Column = "5" Margin="10" Width="200"/>
+                        </StackPanel>
+
+
+                    </StackPanel>
+
+                    <StackPanel Orientation = "Horizontal"  HorizontalAlignment = "Center">
+                        <Button x:Name="am_execute" Content="Ejecutar" Click="Execute_Click" Background = "AntiqueWhite" Width="100" Padding="10" Margin="0,0,10,0"/>
+                        <Button x:Name="button_save" Content="Save" Click="Save_Click" Background = "AntiqueWhite" Width="100" Padding="10" Margin="0,0,10,0"/>
+                    </StackPanel>
+                    
+                   
+                </StackPanel>
+
+            </TabItem>
+            <TabItem Header="TabItem">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+        </TabControl>
+    </Grid>
 </Window>
