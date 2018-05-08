@@ -11,8 +11,8 @@
             <TabItem x:Name="Activity_Manager" Header="Activity Manager" Background = "Gainsboro" >
                 <StackPanel Orientation = "Vertical">
                     <StackPanel Orientation = "Horizontal">
-                        <RadioButton x:Name="radButActivity" Margin="10" Content="Activity" GroupName="am_choice"/>
-                        <RadioButton x:Name="radButService" Margin="10" Content="Service" GroupName="am_choice" IsChecked="True"/>
+                        <RadioButton x:Name="radButActivity" Margin="10" Content="Activity" GroupName="am_choice" Checked="Activity_Checked"/>
+                        <RadioButton x:Name="radButService" Margin="10" Content="Service" GroupName="am_choice" IsChecked="True" Checked="Service_Checked"/>
                     </StackPanel>
                     <Grid x:Name = "FormLayoutGrid" Background = "AntiqueWhite" Margin="10">
                         <Grid.ColumnDefinitions>
@@ -83,9 +83,48 @@
                 </StackPanel>
 
             </TabItem>
-            <TabItem Header="TabItem">
-                <Grid Background="#FFE5E5E5"/>
+            <TabItem Header="Paths"  Background = "Gainsboro">
+                <StackPanel Orientation = "Vertical">
+                    <StackPanel Orientation = "Horizontal" HorizontalAlignment="Left">
+                        <Button x:Name="btn_paths" Content="Manual Set-up" Click="Open_Path_Setup" Background = "AntiqueWhite" Width="100" Padding="10" Margin="10"/>
+                    </StackPanel>
+                    <Grid x:Name = "FormLayoutGrid1" Background = "AntiqueWhite" Margin="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width = "Auto" />
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height = "*" />
+                            <RowDefinition Height = "*" />
+                            <RowDefinition Height = "*" />
+                            <RowDefinition Height = "*" />
+                            <RowDefinition Height = "*" />
+                            <RowDefinition Height = "*" />
+                        </Grid.RowDefinitions>
+
+                        <CheckBox x:Name="checkHome" Grid.Row = "0" Grid.Column = "0" Content = "ANDROID HOME" Margin = "10" HorizontalAlignment = "Left" VerticalAlignment = "Center" Width = "130" />
+                        <CheckBox x:Name="checkNDK" Grid.Row = "1" Grid.Column = "0" Content= "ANDROID NDK" Margin = "10" HorizontalAlignment = "Left" VerticalAlignment = "Center" Width = "130" />
+                        <CheckBox x:Name="checkTools" Grid.Row = "2" Grid.Column = "0" Content= "SDK TOOLS" Margin = "10" HorizontalAlignment = "Left" VerticalAlignment = "Center" Width = "130" />
+                        <CheckBox x:Name="checkPlatform" Grid.Row = "3" Grid.Column = "0" Content= "PLATFORM TOOLS" Margin = "10" HorizontalAlignment = "Left" VerticalAlignment = "Center" Width = "130" />
+                        <CheckBox x:Name="checkBuild" Grid.Row = "4" Grid.Column = "0" Content= "BUILD TOOLS" Margin = "10" HorizontalAlignment = "Left" VerticalAlignment = "Center" Width = "130" />
+
+                        <TextBlock x:Name="txtHome" Grid.Row = "0" Grid.Column = "1" Margin = "10" Background="AliceBlue"/>
+                        <TextBlock x:Name="txtNDK" Grid.Row = "1" Grid.Column = "1" Margin = "10" Background="AliceBlue"/>
+                        <TextBlock x:Name="txtTools" Grid.Row = "2" Grid.Column = "1" Margin = "10" Background="AliceBlue"/>
+                        <TextBlock x:Name="txtPlatform" Grid.Row = "3" Grid.Column = "1" Margin = "10" Background="AliceBlue"/>
+                        <TextBlock x:Name="txtBuild" Grid.Row = "4" Grid.Column = "1" Margin = "10" Background="AliceBlue"/>
+
+                    </Grid>
+                    <StackPanel Orientation = "Horizontal" HorizontalAlignment="Left">
+                        <Button x:Name="btn_env_paths" Content="SET PATHS" Click="Set_Paths" Background = "AntiqueWhite" Width="150" Padding="10" Margin="10"/>
+                    </StackPanel>
+                    <StackPanel Orientation = "Horizontal" HorizontalAlignment="Left">
+                        <Button x:Name="btn_open_folder" Content="Resource Folder" Click="Open_Folder" Background = "AntiqueWhite" Width="150" Padding="10" Margin="10"/>
+                    </StackPanel>
+                </StackPanel>
             </TabItem>
+            
         </TabControl>
     </Grid>
 </Window>
