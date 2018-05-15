@@ -152,16 +152,17 @@ namespace ADB_GUI_Utillity
             args = args + " -a " + txtBoxAction.Text;
             if (combo1.SelectedIndex > -1  && adbIntent == OPT_SERVICE)
             {
-                args = args + " " + coms[combo1.SelectedIndex] + " " + txtBoxName1.Text + " " + txtBoxVal1.Text;
+                args = args + " " + coms[combo1.SelectedIndex] + " \"" + txtBoxName1.Text + "\" \"" + txtBoxVal1.Text + "\"";
             }
             if (combo2.SelectedIndex > -1 && adbIntent == OPT_SERVICE)
             {
-                args = args + " " + coms[combo2.SelectedIndex] + " " + txtBoxName2.Text + " " + txtBoxVal2.Text;
+                args = args + " " + coms[combo2.SelectedIndex] + " \"" + txtBoxName2.Text + "\" \"" + txtBoxVal2.Text + "\"";
             }
             if (combo3.SelectedIndex > -1 && adbIntent == OPT_SERVICE)
             {
-                args = args + " " + coms[combo3.SelectedIndex] + " " + txtBoxName3.Text + " " + txtBoxVal3.Text;
+                args = args + " " + coms[combo3.SelectedIndex] + " \"" + txtBoxName3.Text + "\" \"" + txtBoxVal3.Text + "\"";
             }
+            txtCommand.Text = args;
             adb.StartInfo.Arguments = args;
             adb.Start();
             MessageBox.Show("Done\nTip: Set export to True\n");

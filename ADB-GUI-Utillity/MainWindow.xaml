@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ADB_GUI_Utillity"
         mc:Ignorable="d"
-        Title="ADB-GUI-Utility" Height="560" Width="800" Background = "Gainsboro">
+        Title="ADB-GUI-Utility" Height="640" Width="800" Background = "Gainsboro">
     <Grid Margin="10" Background = "Gainsboro">
         <TabControl HorizontalAlignment="Left" Width="770" Background = "Gainsboro">
             <TabItem x:Name="Activity_Manager" Header="Activity Manager" Background = "Gainsboro" >
@@ -73,7 +73,7 @@
 
 
                     </StackPanel>
-
+                    <TextBox x:Name="txtCommand"  Margin="10" MaxLines="4" Height="60" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Visible" TextWrapping="Wrap"/>
                     <StackPanel Orientation = "Horizontal"  HorizontalAlignment = "Center">
                         <Button x:Name="am_execute" Content="Ejecutar" Click="Execute_Click" Background = "AntiqueWhite" Width="100" Padding="10" Margin="0,0,10,0"/>
                         <Button x:Name="button_save" Content="Save" Click="Save_Click" Background = "AntiqueWhite" Width="100" Padding="10" Margin="0,0,10,0"/>
