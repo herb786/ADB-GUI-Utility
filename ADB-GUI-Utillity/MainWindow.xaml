@@ -124,7 +124,21 @@
                     </StackPanel>
                 </StackPanel>
             </TabItem>
-            
+            <TabItem Header="Firebase Lab" Background="Gainsboro">
+                <StackPanel Orientation = "Vertical">
+                    <StackPanel Orientation = "Horizontal">
+                        <TextBlock Background="AliceBlue" HorizontalAlignment = "Left" VerticalAlignment = "Center" Width = "100" Margin="10" Padding="10" Text = "Project" />
+                        <TextBox x:Name="txtProjectName" Margin="10" Width="400"/>
+                        <Button x:Name="btn_change_url" Content="Change" Click="Change_Url_Project" Background = "AntiqueWhite" Width="150" Padding="10" Margin="10"/>
+                    </StackPanel>
+                    <TextBox x:Name="txtProjectUrl" Padding="10" Margin="10"/>
+                    <StackPanel Orientation = "Horizontal">
+                        <TextBlock Background="AliceBlue" HorizontalAlignment = "Left" VerticalAlignment = "Center" Width = "100" Margin="10" Padding="10" Text = "Auth Bearer" />
+                        <TextBox x:Name="txtAuthBearer" Margin="10" Width="500"/>
+                    </StackPanel>
+                    <Button x:Name="btn_send_topic" Content="Send Notification" Click="Send_Notification" Background = "AntiqueWhite" Width="150" Padding="10" Margin="10"/>
+                </StackPanel>
+            </TabItem>
         </TabControl>
     </Grid>
 </Window>

@@ -17,6 +17,9 @@ using System.Reflection;
 using System.Security.Principal;
 
 using System.Runtime.InteropServices;
+using System.Net.WebSockets;
+using System.Net;
+using System.IO;
 
 namespace ADB_GUI_Utillity
 {
@@ -188,6 +191,61 @@ namespace ADB_GUI_Utillity
             Console.WriteLine(path);
             Process.Start("explorer.exe", path);
         }
+
+        private void Send_Notification(object sender, RoutedEventArgs e)
+        {
+            string url = txtProjectUrl.Text;
+            string AccessToken = txtAuthBearer.Text;
+
+            WebRequest httpWebRequest = WebRequest.Create(url);
+            httpWebRequest.ContentType = "application/json";
+            httpWebRequest.Headers.Add("Authorization", "Bearer " + AccessToken);
+            httpWebRequest.Method = "POST";
+
+            Stream dataStream = httpWebRequest.GetRequestStream();
+            StreamWriter streamWriter = new StreamWriter(dataStream);
+            string json = "{\"message\":{\"topic\":\"foo-bar\"," +
+                        "\"notification\":{" +
+                        "\"body\":\"This is a Firebase Cloud Messaging Topic Message!\"," +
+                        "\"title\":\"FCM Message\",}}}";
+            streamWriter.Write(json);
+            streamWriter.Flush();
+            streamWriter.Close();
+
+            // Get the response.
+            try
+            {
+                WebResponse response = httpWebRequest.GetResponse();
+                // Display the status.  
+                Console.WriteLine(((HttpWebResponse)response).StatusDescription);
+                // Get the stream containing content returned by the server.  
+                dataStream = response.GetResponseStream();
+                // Open the stream using a StreamReader for easy access.  
+                StreamReader reader = new StreamReader(dataStream);
+                // Read the content.  
+                string responseFromServer = reader.ReadToEnd();
+                // Display the content.  
+                Console.WriteLine(responseFromServer);
+                // Clean up the streams.  
+                reader.Close();
+                dataStream.Close();
+                response.Close();
+            } catch (WebException ex)
+            {
+                Console.WriteLine(ex.StackTrace);
+               
+            }
+            
+        }
+
+        private void Change_Url_Project(object sender, RoutedEventArgs e)
+        {
+            string app = txtProjectName.Text;
+            string endpoint = "https://fcm.googleapis.com/v1/projects/" + app + "/messages:send HTTP/1.1";
+            txtProjectUrl.Text = endpoint;
+        }
+
+     
 
     }
 
